@@ -1,0 +1,12 @@
+{
+  "name": "@inway/meteor-random",
+  "version": "1.0.10",
+  "description": "NPM version of Meteor's Random",
+  "main": "random.js",
+  "author": "inway",
+  "license": "MIT",
+  "keywords": [
+    "random",
+    "meteor"
+  ]
+}
