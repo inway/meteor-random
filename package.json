@@ -1,6 +1,6 @@
 {
   "name": "@inway/meteor-random",
-  "version": "1.0.10",
+  "version": "1.0.11-rc1",
   "description": "NPM version of Meteor's Random",
   "main": "random.js",
   "scripts": {
@@ -12,7 +12,11 @@
   },
   "author": "inway",
   "license": "MIT",
-  "keywords": ["meteor", "random", "crypt"],
+  "keywords": [
+    "meteor",
+    "random",
+    "crypt"
+  ],
   "devDependencies": {
     "jest": "^21.2.1"
   }
