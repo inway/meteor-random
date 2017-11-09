@@ -3,10 +3,17 @@
   "version": "1.0.10",
   "description": "NPM version of Meteor's Random",
   "main": "random.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "url": "https://github.com/inway/meteor-random.git",
+    "type": "git"
+  },
   "author": "inway",
   "license": "MIT",
-  "keywords": [
-    "random",
-    "meteor"
-  ]
+  "keywords": ["meteor", "random", "crypt"],
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
 }

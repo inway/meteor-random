@@ -7,8 +7,7 @@
 // window.crypto.getRandomValues() or alea, the primitive is fraction and we use
 // that to construct hex string.
 
-if (Meteor.isServer)
-  var nodeCrypto = Npm.require('crypto');
+var nodeCrypto = require('crypto');
 
 // see http://baagoe.org/en/wiki/Better_random_numbers_for_javascript
 // for a full discussion and Alea implementation.
@@ -238,61 +237,6 @@ RandomGenerator.prototype.choice = function (arrayOrString) {
     return arrayOrString[index];
 };
 
-// instantiate RNG.  Heuristically collect entropy from various sources when a
-// cryptographic PRNG isn't available.
+Random = new RandomGenerator(RandomGenerator.Type.NODE_CRYPTO);
 
-// client sources
-var height = (typeof window !== 'undefined' && window.innerHeight) ||
-      (typeof document !== 'undefined'
-       && document.documentElement
-       && document.documentElement.clientHeight) ||
-      (typeof document !== 'undefined'
-       && document.body
-       && document.body.clientHeight) ||
-      1;
-
-var width = (typeof window !== 'undefined' && window.innerWidth) ||
-      (typeof document !== 'undefined'
-       && document.documentElement
-       && document.documentElement.clientWidth) ||
-      (typeof document !== 'undefined'
-       && document.body
-       && document.body.clientWidth) ||
-      1;
-
-var agent = (typeof navigator !== 'undefined' && navigator.userAgent) || "";
-
-function createAleaGeneratorWithGeneratedSeed() {
-  return new RandomGenerator(
-    RandomGenerator.Type.ALEA,
-    {seeds: [new Date, height, width, agent, Math.random()]});
-};
-
-if (Meteor.isServer) {
-  Random = new RandomGenerator(RandomGenerator.Type.NODE_CRYPTO);
-} else {
-  if (typeof window !== "undefined" && window.crypto &&
-      window.crypto.getRandomValues) {
-    Random = new RandomGenerator(RandomGenerator.Type.BROWSER_CRYPTO);
-  } else {
-    // On IE 10 and below, there's no browser crypto API
-    // available. Fall back to Alea
-    //
-    // XXX looks like at the moment, we use Alea in IE 11 as well,
-    // which has `window.msCrypto` instead of `window.crypto`.
-    Random = createAleaGeneratorWithGeneratedSeed();
-  }
-}
-
-// Create a non-cryptographically secure PRNG with a given seed (using
-// the Alea algorithm)
-Random.createWithSeeds = function (...seeds) {
-  if (seeds.length === 0) {
-    throw new Error("No seeds were provided");
-  }
-  return new RandomGenerator(RandomGenerator.Type.ALEA, {seeds: seeds});
-};
-
-// Used like `Random`, but much faster and not cryptographically
-// secure
-Random.insecure = createAleaGeneratorWithGeneratedSeed();
+module.exports = Random
