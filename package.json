@@ -18,6 +18,6 @@
     "crypt"
   ],
   "devDependencies": {
-    "jest": "^21.2.1"
+    "jest": "^24.8.0"
   }
 }
