@@ -1,8 +1,9 @@
 {
   "name": "@inway/meteor-random",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "NPM version of Meteor's Random",
   "main": "random.js",
+  "types": "random.d.ts",
   "scripts": {
     "test": "jest"
   },
@@ -18,9 +19,10 @@
     "crypt"
   ],
   "devDependencies": {
-    "jest": "^24.8.0"
+    "jest": "^24.9.0"
   },
   "resolutions": {
+    "handlebars": ">=4.5.3",
     "lodash": ">=4.17.13",
     "sshpk": ">=1.16.1"
   }
