@@ -1,4 +1,4 @@
-export default Decimal;
+export default Random;
 
 export declare class Random {
     static id(charsCount: number): string;
