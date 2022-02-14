@@ -1,6 +1,6 @@
 {
   "name": "@inway/meteor-random",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "NPM version of Meteor's Random",
   "main": "random.js",
   "types": "random.d.ts",
