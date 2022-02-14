@@ -19,7 +19,7 @@
     "crypt"
   ],
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^27.5.1"
   },
   "resolutions": {
     "handlebars": ">=4.5.3",
