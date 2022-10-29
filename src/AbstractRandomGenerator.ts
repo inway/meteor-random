@@ -89,8 +89,8 @@ export default abstract class RandomGenerator {
    * @locus Anywhere
    * @param {Array|String} arrayOrString Array or string to choose from
    */
-  choice<T>(arrayOrString: T[]): T;
-  choice(arrayOrString: string): string;
+  choice<T>(arrayOfChoices: T[]): T;
+  choice(someString: string): string;
   choice(arrayOrString: string | any[]) {
     const index = Math.floor(this.fraction() * arrayOrString.length);
     if (typeof arrayOrString === 'string') {
