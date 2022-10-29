@@ -8,8 +8,9 @@ on:
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
-  pages: write
   id-token: write
+  pages: write
+  packages: write
 
 env:
   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -64,7 +65,7 @@ jobs:
       - name: Publish to GPR
         run: yarn publish
         continue-on-error: true
-      - name: Force publishing to npmjs.org
+      - name: Switch publishing to npmjs.org
         run: |
           echo "@inway:registry=https://registry.npmjs.org" >> .npmrc
       - name: Publish to npmjs.org
