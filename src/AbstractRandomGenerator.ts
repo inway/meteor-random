@@ -44,7 +44,7 @@ export default abstract class RandomGenerator {
     return this._randomString(digits, '0123456789abcdef');
   }
 
-  _randomString(charsCount: number, alphabet: string) {
+  private _randomString(charsCount: number, alphabet: string) {
     let result = '';
     for (let i = 0; i < charsCount; i++) {
       result += this.choice(alphabet);
