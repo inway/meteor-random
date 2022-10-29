@@ -41,6 +41,9 @@ jobs:
           echo "@inway:registry=https://npm.pkg.github.com" >> .npmrc
       - run: yarn install --frozen-lockfile
       - run: yarn build
+      - name: Force publishing to npmjs.org
+        run: |
+          echo "@inway:registry=https://registry.npmjs.org" >> .npmrc
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
