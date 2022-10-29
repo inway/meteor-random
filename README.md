@@ -1,8 +1,10 @@
-# @inway/meteor-random
+# @inway/meteor-random [![CodeQL](https://github.com/inway/meteor-random/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/inway/meteor-random/actions/workflows/codeql-analysis.yml)
 
 This is a direct port of Meteor's `random` package to Typescript focused on server side usage outside Meteor code.
 
-## Original content from Meteor's package
+[Documentation](https://inway.github.io/meteor-random/)
+
+## Original content from Meteor's package README
 
 [Source code of released version](https://github.com/meteor/meteor/tree/master/packages/random) | [Source code of development version](https://github.com/meteor/meteor/tree/devel/packages/random)
 
