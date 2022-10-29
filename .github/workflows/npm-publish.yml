@@ -5,6 +5,9 @@ on:
     types: [created]
   workflow_dispatch:
 
+env:
+  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,6 +17,11 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
+          cache: 'yarn'
+      - name: Register additional private repositories
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> .npmrc
+          echo "@inway:registry=https://npm.pkg.github.com" >> .npmrc
       - run: yarn install --frozen-lockfile
       - run: yarn test
       - run: yarn build
@@ -27,6 +35,10 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+      - name: Register additional private repositories
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> .npmrc
+          echo "@inway:registry=https://npm.pkg.github.com" >> .npmrc
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: yarn publish
@@ -45,8 +57,10 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
+      - name: Register additional private repositories
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> .npmrc
+          echo "@inway:registry=https://npm.pkg.github.com" >> .npmrc
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
