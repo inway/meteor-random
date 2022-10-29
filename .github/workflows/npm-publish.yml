@@ -13,7 +13,8 @@ permissions:
   packages: write
 
 env:
-  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GPR_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
   build:
@@ -32,7 +33,7 @@ jobs:
           cache: 'yarn'
       - name: Register additional private repositories
         run: |
-          echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=\${GPR_AUTH_TOKEN}" >> .npmrc
           echo "@inway:registry=https://npm.pkg.github.com" >> .npmrc
       - run: yarn install --frozen-lockfile
       - run: yarn test
@@ -58,7 +59,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - name: Register additional private repositories
         run: |
-          echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=\${GPR_AUTH_TOKEN}" >> .npmrc
           echo "@inway:registry=https://npm.pkg.github.com" >> .npmrc
       - run: yarn install --frozen-lockfile
       - run: yarn build
@@ -67,8 +68,7 @@ jobs:
         continue-on-error: true
       - name: Switch publishing to npmjs.org
         run: |
+          echo "//registry.npmjs.org/:_authToken=\${NPM_AUTH_TOKEN}" >> .npmrc
           echo "@inway:registry=https://registry.npmjs.org" >> .npmrc
       - name: Publish to npmjs.org
         run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
