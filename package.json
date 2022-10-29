@@ -2,10 +2,27 @@
   "name": "@inway/meteor-random",
   "version": "1.1.6",
   "description": "NPM version of Meteor's Random",
-  "main": "random.js",
-  "types": "random.d.ts",
+  "type": "module",
+  "main": "./cjs/index.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./esm/index.js",
+      "require": "./cjs/index.js",
+      "types": "./types/index.d.ts"
+    }
+  },
+  "prettier": "@inway/prettier-config",
   "scripts": {
-    "test": "jest"
+    "build": "tsc -p tsconfig.types.json && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
+    "clean": "rm -rf ./cjs ./docs ./esm ./types",
+    "predocs": "rm -rf ./docs && mkdir ./docs",
+    "docs": "typedoc",
+    "test": "jest --verbose",
+    "test:watch": "jest --watchAll --no-cache"
+  },
+  "engines": {
+    "node": ">=16.14"
   },
   "repository": {
     "url": "https://github.com/inway/meteor-random.git",
@@ -19,6 +36,15 @@
     "crypt"
   ],
   "devDependencies": {
-    "jest": "^27.5.1"
+    "@inway/prettier-config": "^1.0.1",
+    "@jest/globals": "^29.2.2",
+    "@tsconfig/node16": "^1.0.3",
+    "@types/jest": "^29.2.0",
+    "@types/node": "^18.11.7",
+    "jest": "^29.2.2",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.23.19",
+    "typescript": "^4.8.4"
   }
 }

@@ -1,4 +1,6 @@
-.build*
-.npmrc
+cjs
+docs
+esm
+types
 node_modules
 yarn-error.log
