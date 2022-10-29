@@ -1,4 +1,4 @@
-import { randomBytes, pseudoRandomBytes } from 'node:crypto';
+import { randomBytes } from 'node:crypto';
 import RandomGenerator from './AbstractRandomGenerator.js';
 
 export default class NodeRandomGenerator extends RandomGenerator {
@@ -26,8 +26,9 @@ export default class NodeRandomGenerator extends RandomGenerator {
     try {
       bytes = randomBytes(numBytes);
     } catch (e) {
-      // XXX should re-throw any error except insufficient entropy
-      bytes = pseudoRandomBytes(numBytes);
+      // As `pseudoRandomBytes` was deprecated in DEP0115, there should be no
+      // fallback and just rethrow the error received
+      throw e;
     }
     const result = bytes.toString('hex');
     // If the number of digits is odd, we'll have generated an extra 4 bits
