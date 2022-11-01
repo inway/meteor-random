@@ -39,7 +39,7 @@
     "@inway/prettier-config": "^1.0.1",
     "@jest/globals": "^29.2.2",
     "@tsconfig/node16": "^1.0.3",
-    "@types/jest": "^29.2.0",
+    "@types/jest": "^29.2.1",
     "@types/node": "^18.11.8",
     "jest": "^29.2.2",
     "ts-jest": "^29.0.3",
