@@ -37,7 +37,7 @@
   ],
   "devDependencies": {
     "@inway/prettier-config": "^1.0.1",
-    "@jest/globals": "^29.2.2",
+    "@jest/globals": "^29.3.0",
     "@tsconfig/node16": "^1.0.3",
     "@types/jest": "^29.2.1",
     "@types/node": "^18.11.9",
