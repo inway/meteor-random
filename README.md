@@ -1,6 +1,20 @@
-# random
+# @inway/meteor-random
+
+This is a direct port of Meteor's `random` package to plain Node.js. This is
+currently a legacy branch, which is not actively maintained, but is kept for
+compatibility reasons.
+
+Versions published from this branch (v1.1.x) should be safe to include with
+Meteor code. Versions above 1.2.0 require Node.js 16.14 or higher, and currently
+are not compatible with Meteor.
+
+[Current version documentation](https://inway.github.io/meteor-random/)
+
+## Original content from Meteor's package README
+
 [Source code of released version](https://github.com/meteor/meteor/tree/master/packages/random) | [Source code of development version](https://github.com/meteor/meteor/tree/devel/packages/random)
-***
+
+---
 
 The `random` package provides several functions for generating random
 numbers. It uses a cryptographically strong pseudorandom number generator when
@@ -10,14 +24,14 @@ servers that don't have enough entropy to seed the cryptographically strong
 generator).
 
 - `Random.id([n])` - Returns a unique identifier, such as `"Jjwjg6gouWLXhMGKW"`, that is
-likely to be unique in the whole world. The optional argument `n`
-specifies the length of the identifier in characters and defaults to 17.
+  likely to be unique in the whole world. The optional argument `n`
+  specifies the length of the identifier in characters and defaults to 17.
 
 - `Random.secret([n])` - Returns a random string of printable characters with 6 bits of
-entropy per character. The optional argument `n` specifies the length of
-the secret string and defaults to 43 characters, or 256 bits of
-entropy. Use `Random.secret` for security-critical secrets that are
-intended for machine, rather than human, consumption.
+  entropy per character. The optional argument `n` specifies the length of
+  the secret string and defaults to 43 characters, or 256 bits of
+  entropy. Use `Random.secret` for security-critical secrets that are
+  intended for machine, rather than human, consumption.
 
 - `Random.fraction()` - Returns a number between 0 and 1, like `Math.random`.
 
