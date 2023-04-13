@@ -1,6 +1,10 @@
 # @inway/meteor-random [![CodeQL](https://github.com/inway/meteor-random/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/inway/meteor-random/actions/workflows/codeql-analysis.yml)
 
-This is a direct port of Meteor's `random` package to Typescript focused on server side usage outside Meteor code.
+This is a direct port of Meteor's `random` package to Typescript focused on
+server side usage outside Meteor code.
+
+Versions from 1.2.0 require Node.js 16.14 or higher to work, when you need to
+support Node.js 14, use 1.1.6 (`@inway/meteor-random@legacy`).
 
 [Documentation](https://inway.github.io/meteor-random/)
 
