@@ -5,6 +5,7 @@
   "main": "random.js",
   "types": "random.d.ts",
   "scripts": {
+    "build": "exit 0",
     "test": "jest"
   },
   "repository": {
