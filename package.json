@@ -2,7 +2,7 @@
   "name": "@inway/meteor-random",
   "version": "1.2.0",
   "description": "NPM version of Meteor's Random",
-  "type": "commonjs",
+  "type": "module",
   "main": "./cjs/index.js",
   "types": "./types/index.d.ts",
   "exports": {
