@@ -12,7 +12,6 @@
       "types": "./types/index.d.ts"
     }
   },
-  "prettier": "@inway/prettier-config",
   "scripts": {
     "build": "tsc -p tsconfig.types.json && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
     "clean": "rm -rf ./cjs ./docs ./esm ./types",
@@ -24,12 +23,13 @@
   "engines": {
     "node": ">=18"
   },
+  "license": "MIT",
+  "prettier": "@inway/prettier-config",
   "repository": {
     "url": "https://github.com/inway/meteor-random.git",
     "type": "git"
   },
   "author": "inway",
-  "license": "MIT",
   "keywords": [
     "meteor",
     "random",
@@ -39,15 +39,12 @@
     "@inway/prettier-config": "^1.0.1",
     "@jest/globals": "^29.7.0",
     "@tsconfig/node18": "^18.2.2",
-    "@types/jest": "^29.5.11",
-    "@types/node": "^20.11.10",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.16",
     "jest": "^29.7.0",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typedoc": "^0.25.7",
     "typescript": "^5.3.3"
-  },
-  "resolutions": {
-    "json5": ">= 2.2.2"
   }
 }
