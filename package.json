@@ -26,7 +26,7 @@
   "license": "MIT",
   "prettier": "@inway/prettier-config",
   "repository": {
-    "url": "https://github.com/inway/meteor-random.git",
+    "url": "git+https://github.com/inway/meteor-random.git",
     "type": "git"
   },
   "author": "inway",
