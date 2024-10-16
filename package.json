@@ -1,6 +1,6 @@
 {
   "name": "@inway/meteor-random",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "NPM version of Meteor's Random",
   "type": "module",
   "main": "./cjs/index.js",
